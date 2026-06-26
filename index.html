@@ -50,11 +50,11 @@
     .girl {
       display: none;
       position: absolute;
-      top: 22px;
-      left: 63%;
-      transform: translateX(-50%);
-      width: 460%;
-      max-width: 240px;
+      top: -10px;
+      left: 60%;
+      transform: translateX(-40%);
+      width: 380%;
+      max-width: 380px;
       z-index: 1;
       pointer-events: none;
     }
@@ -95,40 +95,6 @@
       font-size: 25px;
       letter-spacing: 0.08em;
       text-shadow: 0 2px 6px rgba(0,0,0,0.4);
-    }
-
-    /* トップ画面専用タイトル */
-    .top-panel h1 {
-      margin: 0 0 18px;
-      padding: 12px 16px;
-      text-align: center;
-      font-size: 25px;
-      font-weight: bold;
-      letter-spacing: 0.12em;
-      color: #fff;
-      background: linear-gradient(
-        90deg,
-        rgba(255,255,255,0.05),
-        rgba(255,255,255,0.28),
-        rgba(255,255,255,0.05)
-      );
-      border-top: 2px solid rgba(255,255,255,0.6);
-      border-bottom: 2px solid rgba(255,255,255,0.6);
-      border-radius: 14px;
-      box-shadow:
-        0 4px 12px rgba(0,0,0,0.25),
-        inset 0 1px 0 rgba(255,255,255,0.2);
-      text-shadow:
-        0 0 8px rgba(255,255,255,0.3),
-        0 2px 6px rgba(0,0,0,0.5);
-    }
-
-    .top-panel h1::before,
-    .top-panel h1::after {
-      content: "♦";
-      color: #ffd700;
-      margin: 0 10px;
-      font-size: 0.9em;
     }
 
     .card {
@@ -263,7 +229,7 @@
 
     <img
       class="girl"
-      src="https://livedoor.blogimg.jp/akibaguild_front/imgs/0/5/0570c8f1.png?v=20260516205712"
+      src="https://livedoor.blogimg.jp/akibaguild_front/imgs/6/2/62eba478.png?v=20260625164304"
       alt="案内キャラクター"
     />
 
@@ -279,7 +245,7 @@
           <button class="sub lang-btn" onclick="setLang('zh')">中文</button>
           <button class="sub lang-btn" onclick="setLang('ko')">한국어 </button>
           <button class="sub lang-btn" onclick="setLang('en')">English</button>
-          <button class="sub lang-btn" onclick="setLang('ru')">Русский</button>
+          <button class="sub lang-btn" onclick="setLang('ru')">Pусский</button>
           <button class="sub lang-btn" onclick="setLang('fr')">Français</button>
         </div>
       </div>
