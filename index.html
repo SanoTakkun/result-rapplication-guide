@@ -221,9 +221,20 @@
     .top-actions {
       display: flex;
       align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
       gap: 12px;
       color: #ffe5ec;
       font-size: 13px;
+    }
+
+    .header-datetime {
+      min-width: 190px;
+      color: #fff;
+      font-weight: 700;
+      text-align: right;
+      letter-spacing: 0.02em;
+      font-variant-numeric: tabular-nums;
     }
 
     .ghost-btn {
@@ -297,6 +308,372 @@
 
     .work-screen.active {
       display: block;
+    }
+
+    #screen-register.nomination-checkout-overlay {
+      display: block;
+      position: fixed;
+      inset: 4vh 4vw;
+      z-index: 150;
+      overflow: auto;
+      padding: 18px;
+      border: 2px solid var(--primary);
+      border-radius: 12px;
+      background: #fff;
+      box-shadow: 0 0 0 100vmax rgba(38, 20, 27, 0.48), 0 18px 50px rgba(0, 0, 0, 0.3);
+    }
+
+    #screen-register.nomination-checkout-overlay .panel-head:first-child {
+      position: sticky;
+      top: -18px;
+      z-index: 3;
+      margin: -18px -18px 14px;
+      padding: 14px 18px;
+      background: #fff8fa;
+      border-bottom: 1px solid var(--line);
+    }
+
+    #screen-register .shift-form-grid,
+    #screen-register .catalog-tools,
+    #screen-register .product-grid,
+    #screen-register .payment-grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    #screen-register .shift-form-grid .full {
+      grid-column: auto;
+    }
+
+    #castDrinkCheckoutDetails[hidden],
+    #chekiCheckoutDetails[hidden],
+    #champagneCheckoutDetails[hidden],
+    #chekiAdditionalCastField[hidden] {
+      display: none !important;
+    }
+
+    #screen-register:not(.nomination-checkout-overlay) .catalog-tools,
+    #screen-register:not(.nomination-checkout-overlay) .cart > .panel-head,
+    #screen-register:not(.nomination-checkout-overlay) .cart-list,
+    #screen-register:not(.nomination-checkout-overlay) .payment-grid,
+    #screen-register:not(.nomination-checkout-overlay) .summary > .field,
+    #screen-register:not(.nomination-checkout-overlay) .summary-row:not(.total) {
+      display: none;
+    }
+
+    #screen-register .payment-grid,
+    #screen-register .summary > .field {
+      display: none;
+    }
+
+    #screen-register.nomination-checkout-overlay .catalog-tools {
+      display: none;
+    }
+
+    #screen-register:not(.nomination-checkout-overlay) .summary {
+      margin-top: 14px;
+    }
+
+    #screen-register:not(.nomination-checkout-overlay) .history {
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 2px solid var(--line);
+    }
+
+    .register-product-heading {
+      margin: 14px 0 8px;
+      color: var(--primary-dark);
+    }
+
+    .register-tag-selector {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 10px;
+    }
+
+    .register-tag-button.active {
+      border-color: var(--primary);
+      background: var(--primary);
+      color: #fff;
+    }
+
+    #screen-register.nomination-checkout-overlay .register-tag-selector {
+      display: none;
+    }
+
+    .checkout-info-stack {
+      display: grid;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .product.is-selected {
+      border-color: var(--primary);
+      background: #fff0f5;
+      box-shadow: inset 0 0 0 1px var(--primary);
+    }
+
+    .product-quantity {
+      display: inline-grid;
+      place-items: center;
+      min-width: 25px;
+      height: 25px;
+      margin-left: auto;
+      border-radius: 999px;
+      background: var(--primary);
+      color: #fff;
+      font-weight: 900;
+    }
+
+    .cheki-selected-cast-list {
+      display: grid;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+
+    .cheki-selected-cast {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #fff;
+    }
+
+    .cheki-cast-select-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 220;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      background: rgba(38, 20, 27, 0.55);
+    }
+
+    .cheki-cast-select-overlay[hidden] {
+      display: none;
+    }
+
+    .cheki-cast-select-dialog {
+      width: min(520px, 94vw);
+      max-height: 82vh;
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr) auto;
+      gap: 12px;
+      padding: 16px;
+      border-radius: 10px;
+      background: #fff;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    }
+
+    .cheki-cast-select-scroll {
+      max-height: 55vh;
+      overflow-y: auto;
+      display: grid;
+      gap: 7px;
+      padding-right: 4px;
+    }
+
+    .payment-method-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .payment-method-dialog {
+      width: min(620px, 94vw);
+      max-height: 90vh;
+    }
+
+    .payment-modal-body {
+      min-height: 0;
+      overflow-y: auto;
+      padding-right: 5px;
+    }
+
+    .payment-method-row {
+      display: grid;
+      grid-template-columns: auto minmax(90px, 1fr) minmax(120px, 160px);
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff8fa;
+      font-weight: 700;
+    }
+
+    .payment-method-row input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--primary);
+    }
+
+    .payment-method-amount[hidden] {
+      display: none;
+    }
+
+    .payment-modal-summary {
+      display: grid;
+      gap: 6px;
+      padding: 10px 12px;
+      border-radius: 8px;
+      background: var(--soft-pink);
+    }
+
+    .payment-modal-line {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--ink);
+    }
+
+    .payment-order-breakdown {
+      display: grid;
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+
+    .payment-order-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 9px 10px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: #fff;
+    }
+
+    .payment-order-item[data-payment-order-id] {
+      cursor: pointer;
+    }
+
+    .payment-order-item.is-selected {
+      border-color: var(--primary);
+      background: #fff0f5;
+      box-shadow: inset 0 0 0 1px var(--primary);
+    }
+
+    .payment-order-item-main {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-width: 0;
+      flex: 1;
+      gap: 12px;
+    }
+
+    .payment-order-remove[hidden] {
+      display: none;
+    }
+
+    .history-edit-item-qty {
+      width: 76px;
+      flex: 0 0 76px;
+    }
+
+    .payment-order-item span {
+      min-width: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .payment-total-row {
+      margin-bottom: 10px;
+      padding: 12px;
+      border: 2px solid var(--primary);
+      border-radius: 8px;
+      background: #fff0f5;
+      color: var(--primary-dark);
+      font-size: 20px;
+      font-weight: 900;
+    }
+
+    .payment-modal-error {
+      min-height: 1.4em;
+      color: #b4233c;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .cheki-accounting-table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .cheki-accounting-table {
+      width: 100%;
+      min-width: 1040px;
+      border-collapse: collapse;
+    }
+
+    .cheki-accounting-table th,
+    .cheki-accounting-table td {
+      padding: 10px;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+      white-space: nowrap;
+    }
+
+    .cheki-accounting-table th {
+      background: #f7edf1;
+      color: var(--primary-dark);
+    }
+
+    .cheki-accounting-table td:last-child {
+      min-width: 180px;
+      white-space: normal;
+    }
+
+    .cheki-accounting-table th:last-child,
+    .cheki-accounting-table td:last-child {
+      text-align: center;
+    }
+
+    .cheki-accounting-table tr.is-photographed td {
+      background: #ececec;
+      color: #666;
+    }
+
+    .cheki-remaining-section {
+      margin-bottom: 16px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff8fa;
+    }
+
+    .cheki-remaining-section h3 {
+      margin: 0 0 10px;
+      color: var(--primary-dark);
+    }
+
+    .cheki-remaining-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 8px;
+    }
+
+    .cheki-remaining-card {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 9px 10px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: #fff;
+    }
+
+    .cheki-history-actions {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      white-space: nowrap;
     }
 
     .screen-grid {
@@ -1854,19 +2231,82 @@
     .history-list {
       display: grid;
       gap: 8px;
-      max-height: 150px;
+      max-height: 420px;
       overflow: auto;
     }
 
     .history-entry {
       display: flex;
+      align-items: center;
       justify-content: space-between;
+      flex-wrap: wrap;
       gap: 12px;
       padding: 8px 10px;
       border: 1px solid var(--line);
       border-radius: 8px;
       background: #fff;
       font-size: 13px;
+      cursor: pointer;
+    }
+
+    .history-entry.is-selected {
+      border-color: var(--primary);
+      background: #fff0f5;
+      box-shadow: inset 0 0 0 1px var(--primary);
+    }
+
+    .history-entry-main {
+      display: grid;
+      min-width: 0;
+      flex: 1;
+      gap: 8px;
+    }
+
+    .history-entry-head,
+    .history-entry-total {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .history-entry-detail {
+      display: grid;
+      gap: 5px;
+      padding: 8px 10px;
+      border-radius: 6px;
+      background: #faf6f8;
+    }
+
+    .history-entry-detail-title {
+      color: var(--primary-dark);
+      font-weight: 800;
+    }
+
+    .history-entry-detail-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding-left: 10px;
+    }
+
+    .history-entry-total {
+      padding-top: 7px;
+      border-top: 1px solid var(--line);
+      color: var(--primary-dark);
+      font-size: 15px;
+      font-weight: 900;
+    }
+
+    .history-entry-actions {
+      display: flex;
+      gap: 8px;
+      width: 100%;
+      justify-content: flex-end;
+    }
+
+    .history-entry-actions[hidden] {
+      display: none;
     }
 
     @media (max-width: 860px) {
@@ -1980,8 +2420,10 @@
         </div>
       </div>
       <div class="top-actions">
+        <time id="headerDateTime" class="header-datetime" aria-label="現在の年月日と時刻"></time>
         <span id="operatorLabel">店舗責任者: akibaguild / AG000</span>
         <button id="endBusinessBtn" class="ghost-btn" type="button">営業を終了</button>
+        <button id="logoutBtn" class="ghost-btn" type="button">ログアウト</button>
       </div>
     </header>
 
@@ -2083,16 +2525,217 @@
               <button id="clearCartBtn" class="ghost-btn" type="button">会計取消</button>
             </div>
             <div id="registerTransferNotice" class="register-transfer-notice" hidden></div>
+            <section id="castDrinkCheckoutDetails" class="shift-request-form" aria-labelledby="castDrinkCheckoutDetailsTitle" hidden>
+              <h3 id="castDrinkCheckoutDetailsTitle">キャストドリンク会計情報</h3>
+              <div class="shift-form-grid">
+                <div class="field">
+                  <label for="castDrinkCheckoutDateTime">会計日時</label>
+                  <input id="castDrinkCheckoutDateTime" readonly />
+                </div>
+                <div class="field">
+                  <label for="castDrinkCheckoutCastName">キャスト名</label>
+                  <input id="castDrinkCheckoutCastName" readonly />
+                </div>
+                <div class="field">
+                  <label for="castDrinkCheckoutEmployeeNumber">従業員番号</label>
+                  <input id="castDrinkCheckoutEmployeeNumber" readonly />
+                </div>
+                <div class="field">
+                  <label for="castDrinkCheckoutQuantity">選択数量</label>
+                  <input id="castDrinkCheckoutQuantity" readonly />
+                </div>
+              </div>
+            </section>
+            <section id="chekiCheckoutDetails" class="shift-request-form" aria-labelledby="chekiCheckoutDetailsTitle" hidden>
+              <h3 id="chekiCheckoutDetailsTitle">チェキ会計情報</h3>
+              <div class="shift-form-grid">
+                <div class="field">
+                  <label for="chekiCheckoutDateTime">会計日時</label>
+                  <input id="chekiCheckoutDateTime" readonly />
+                </div>
+                <div class="field">
+                  <label for="chekiCheckoutCastName">キャスト名</label>
+                  <input id="chekiCheckoutCastName" readonly />
+                </div>
+                <div class="field">
+                  <label for="chekiCheckoutEmployeeNumber">従業員番号</label>
+                  <input id="chekiCheckoutEmployeeNumber" readonly />
+                </div>
+                <div class="field">
+                  <label for="chekiCheckoutPeople">撮影人数</label>
+                  <select id="chekiCheckoutPeople">
+                    <option value="">選択してください</option>
+                    <option value="cast-only">キャストのみ</option>
+                    <option value="master-and-cast">ご主人様と</option>
+                    <option value="multiple-casts">キャスト複数</option>
+                    <option value="multiple-casts-with-master">キャスト複数（ご主人様あり）</option>
+                  </select>
+                </div>
+                <div id="chekiAdditionalCastField" class="field full" hidden>
+                  <label>追加キャスト（当日出勤欄から選択）</label>
+                  <div id="chekiAdditionalCastList" class="cheki-selected-cast-list"></div>
+                  <button id="chekiAddCastButton" class="action-btn" type="button">項目追加</button>
+                </div>
+                <div class="field">
+                  <label for="chekiCheckoutGameId">GameID</label>
+                  <input id="chekiCheckoutGameId" placeholder="GameIDを入力" />
+                </div>
+                <div class="field">
+                  <label for="chekiCheckoutMaster">ご主人様</label>
+                  <input id="chekiCheckoutMaster" placeholder="ご主人様名を入力" />
+                </div>
+                <div class="field">
+                  <label for="chekiCheckoutPlan">プラン</label>
+                  <select id="chekiCheckoutPlan">
+                    <option value="">選択してください</option>
+                    <option value="シンプルチェキ">シンプルチェキ</option>
+                    <option value="しっかりチェキ">しっかりチェキ</option>
+                    <option value="デジタルチェキ">デジタルチェキ</option>
+                    <option value="オルターミーチェキ">オルターミーチェキ</option>
+                  </select>
+                </div>
+                <div class="field full">
+                  <label for="chekiCheckoutNotes">備考欄</label>
+                  <textarea id="chekiCheckoutNotes" placeholder="必要に応じて入力"></textarea>
+                </div>
+              </div>
+            </section>
+            <section id="champagneCheckoutDetails" class="shift-request-form" aria-labelledby="champagneCheckoutDetailsTitle" hidden>
+              <h3 id="champagneCheckoutDetailsTitle">シャンパン会計情報</h3>
+              <div class="shift-form-grid">
+                <div class="field">
+                  <label for="champagneCheckoutDateTime">会計日時</label>
+                  <input id="champagneCheckoutDateTime" readonly />
+                </div>
+                <div class="field">
+                  <label for="champagneCheckoutCastName">キャスト名</label>
+                  <input id="champagneCheckoutCastName" readonly />
+                </div>
+                <div class="field">
+                  <label for="champagneCheckoutEmployeeNumber">従業員番号</label>
+                  <input id="champagneCheckoutEmployeeNumber" readonly />
+                </div>
+                <div class="field">
+                  <label for="champagneCheckoutQuantity">選択数量</label>
+                  <input id="champagneCheckoutQuantity" readonly />
+                </div>
+              </div>
+            </section>
+            <div id="chekiCastSelectModal" class="cheki-cast-select-overlay" hidden>
+              <section class="cheki-cast-select-dialog" role="dialog" aria-modal="true" aria-labelledby="chekiCastSelectTitle">
+                <h3 id="chekiCastSelectTitle">追加キャストを選択</h3>
+                <div id="chekiCastSelectOptions" class="cheki-cast-select-scroll"></div>
+                <div class="shift-form-actions">
+                  <button id="chekiCastSelectConfirm" class="action-btn primary-action" type="button">選択を追加</button>
+                  <button id="chekiCastSelectCancel" class="action-btn" type="button">戻る</button>
+                </div>
+              </section>
+            </div>
+            <div id="eventBottlePriceModal" class="cheki-cast-select-overlay" hidden>
+              <section class="cheki-cast-select-dialog" role="dialog" aria-modal="true" aria-labelledby="eventBottlePriceTitle">
+                <h3 id="eventBottlePriceTitle">イベントボトルの金額選択</h3>
+                <div class="field">
+                  <label for="eventBottlePriceSelect">金額</label>
+                  <select id="eventBottlePriceSelect">
+                    <option value="5000">5,000円</option>
+                    <option value="10000">10,000円</option>
+                    <option value="18000">18,000円</option>
+                    <option value="20000">20,000円</option>
+                    <option value="30000">30,000円</option>
+                    <option value="50000">50,000円</option>
+                    <option value="80000">80,000円</option>
+                    <option value="100000">100,000円</option>
+                    <option value="120000">120,000円</option>
+                    <option value="150000">150,000円</option>
+                    <option value="250000">250,000円</option>
+                  </select>
+                </div>
+                <div class="shift-form-actions">
+                  <button id="eventBottlePriceConfirm" class="action-btn primary-action" type="button">商品を追加</button>
+                  <button id="eventBottlePriceCancel" class="action-btn" type="button">戻る</button>
+                </div>
+              </section>
+            </div>
+            <div id="paymentMethodModal" class="cheki-cast-select-overlay" hidden>
+              <section class="cheki-cast-select-dialog payment-method-dialog" role="dialog" aria-modal="true" aria-labelledby="paymentMethodTitle">
+                <h3 id="paymentMethodTitle">会計方法</h3>
+                <div class="payment-modal-body">
+                  <h4>支払方法の選択</h4>
+                  <p class="subtle">複数選択した場合は支払額を入力してください。最後の1か所は残額から自動入力されます。</p>
+                  <div id="paymentMethodList" class="payment-method-list">
+                    <label class="payment-method-row"><input type="checkbox" value="現金" /><span>現金</span><input class="payment-method-amount" type="number" min="0" step="1" inputmode="numeric" aria-label="現金の金額" hidden /></label>
+                    <label class="payment-method-row"><input type="checkbox" value="カード" /><span>カード</span><input class="payment-method-amount" type="number" min="0" step="1" inputmode="numeric" aria-label="カードの金額" hidden /></label>
+                    <label class="payment-method-row"><input type="checkbox" value="電子マネー" /><span>電子マネー</span><input class="payment-method-amount" type="number" min="0" step="1" inputmode="numeric" aria-label="電子マネーの金額" hidden /></label>
+                    <label class="payment-method-row"><input type="checkbox" value="PayPay" /><span>PayPay</span><input class="payment-method-amount" type="number" min="0" step="1" inputmode="numeric" aria-label="PayPayの金額" hidden /></label>
+                    <label class="payment-method-row"><input type="checkbox" value="USDT" /><span>USDT</span><input class="payment-method-amount" type="number" min="0" step="1" inputmode="numeric" aria-label="USDTの金額" hidden /></label>
+                    <label class="payment-method-row"><input type="checkbox" value="コイン" /><span>コイン</span><input class="payment-method-amount" type="number" min="0" step="1" inputmode="numeric" aria-label="コインの金額" hidden /></label>
+                    <label class="payment-method-row"><input type="checkbox" value="割引" /><span>割引</span><input class="payment-method-amount" type="number" min="0" step="1" inputmode="numeric" aria-label="割引の金額" hidden /></label>
+                  </div>
+                  <h4>会計内訳</h4>
+                  <div id="paymentOrderBreakdown" class="payment-order-breakdown"></div>
+                  <div class="payment-modal-line payment-total-row"><span>合計金額</span><strong id="paymentTargetAmount">¥0</strong></div>
+                  <div class="payment-modal-summary">
+                    <div class="payment-modal-line"><span>選択金額</span><strong id="paymentAllocatedAmount">¥0</strong></div>
+                    <div class="payment-modal-line"><span>残額</span><strong id="paymentRemainingAmount">¥0</strong></div>
+                  </div>
+                  <p id="paymentMethodError" class="payment-modal-error" role="alert"></p>
+                </div>
+                <div class="shift-form-actions">
+                  <button id="paymentMethodConfirm" class="action-btn primary-action" type="button" disabled>会計確認</button>
+                  <button id="paymentMethodCancel" class="action-btn" type="button">戻る</button>
+                </div>
+              </section>
+            </div>
+            <div id="historyEditModal" class="cheki-cast-select-overlay" hidden>
+              <section class="cheki-cast-select-dialog payment-method-dialog" role="dialog" aria-modal="true" aria-labelledby="historyEditTitle">
+                <h3 id="historyEditTitle">会計履歴を編集</h3>
+                <div class="payment-modal-body">
+                  <h4>支払方法の選択</h4>
+                  <div id="historyEditPaymentList" class="payment-method-list">
+                    <label class="payment-method-row"><input type="checkbox" value="現金" /><span>現金</span><input class="payment-method-amount" type="number" min="0" step="1" inputmode="numeric" aria-label="編集する現金の金額" hidden /></label>
+                    <label class="payment-method-row"><input type="checkbox" value="カード" /><span>カード</span><input class="payment-method-amount" type="number" min="0" step="1" inputmode="numeric" aria-label="編集するカードの金額" hidden /></label>
+                    <label class="payment-method-row"><input type="checkbox" value="電子マネー" /><span>電子マネー</span><input class="payment-method-amount" type="number" min="0" step="1" inputmode="numeric" aria-label="編集する電子マネーの金額" hidden /></label>
+                    <label class="payment-method-row"><input type="checkbox" value="PayPay" /><span>PayPay</span><input class="payment-method-amount" type="number" min="0" step="1" inputmode="numeric" aria-label="編集するPayPayの金額" hidden /></label>
+                    <label class="payment-method-row"><input type="checkbox" value="USDT" /><span>USDT</span><input class="payment-method-amount" type="number" min="0" step="1" inputmode="numeric" aria-label="編集するUSDTの金額" hidden /></label>
+                    <label class="payment-method-row"><input type="checkbox" value="コイン" /><span>コイン</span><input class="payment-method-amount" type="number" min="0" step="1" inputmode="numeric" aria-label="編集するコインの金額" hidden /></label>
+                    <label class="payment-method-row"><input type="checkbox" value="割引" /><span>割引</span><input class="payment-method-amount" type="number" min="0" step="1" inputmode="numeric" aria-label="編集する割引の金額" hidden /></label>
+                  </div>
+                  <h4>会計内訳</h4>
+                  <div id="historyEditOrderBreakdown" class="payment-order-breakdown"></div>
+                  <div class="payment-modal-line payment-total-row">
+                    <span>合計金額（自動計算）</span>
+                    <strong id="historyEditCalculatedTotal">¥0</strong>
+                  </div>
+                  <p id="historyEditError" class="payment-modal-error" role="alert"></p>
+                </div>
+                <div class="shift-form-actions">
+                  <button id="historyEditSave" class="action-btn primary-action" type="button">保存</button>
+                  <button id="historyEditCancel" class="action-btn" type="button">戻る</button>
+                </div>
+              </section>
+            </div>
             <div class="catalog-tools">
               <input id="searchBox" type="search" placeholder="商品名で検索" aria-label="商品名で検索" />
               <select id="categoryFilter" aria-label="カテゴリ">
                 <option value="all">すべて</option>
-                <option value="drink">ドリンク</option>
+                <option value="entrance">入場</option>
+                <option value="food-drink">フード、ドリンク</option>
+                <option value="other">その他</option>
                 <option value="cheki">チェキ</option>
                 <option value="cast-drink">キャストドリンク</option>
+                <option value="champagne">ボトル</option>
               </select>
             </div>
+            <h3 class="register-product-heading">商品選択</h3>
+            <div id="registerTagSelector" class="register-tag-selector" aria-label="商品タグ選択">
+              <button class="action-btn register-tag-button active" type="button" data-register-tag="entrance">入場</button>
+              <button class="action-btn register-tag-button" type="button" data-register-tag="food-drink">フード、ドリンク</button>
+              <button class="action-btn register-tag-button" type="button" data-register-tag="other">その他</button>
+              <button class="action-btn register-tag-button" type="button" data-register-tag="cheki">チェキ</button>
+              <button class="action-btn register-tag-button" type="button" data-register-tag="champagne">ボトル</button>
+            </div>
             <div id="productGrid" class="product-grid"></div>
+            <div id="checkoutInfoMount" class="checkout-info-stack"></div>
             <section class="cart" aria-labelledby="cartTitle">
               <div class="panel-head">
                 <h2 id="cartTitle">今回の会計</h2>
@@ -2124,7 +2767,7 @@
                   <strong id="subtotal">¥0</strong>
                 </div>
                 <div class="summary-row">
-                  <span>消費税 10%</span>
+                  <span>内消費税 10%</span>
                   <strong id="tax">¥0</strong>
                 </div>
                 <div class="summary-row">
@@ -2132,13 +2775,13 @@
                   <strong id="change">¥0</strong>
                 </div>
                 <div class="summary-row total">
-                  <span>合計</span>
+                  <span>合計金額</span>
                   <strong id="total">¥0</strong>
                 </div>
-                <button id="completeBtn" class="complete-btn" type="button" disabled>会計完了</button>
+                <button id="completeBtn" class="complete-btn" type="button" disabled>会計</button>
               </section>
               <section class="history" aria-labelledby="historyTitle">
-                <h2 id="historyTitle">直近の会計履歴</h2>
+                <h2 id="historyTitle">会計履歴</h2>
                 <div id="historyList" class="history-list">
                   <p class="subtle">まだ会計履歴はありません。</p>
                 </div>
@@ -2147,19 +2790,37 @@
           </section>
 
           <section id="screen-cheki" class="work-screen" aria-label="チェキ">
-            <div class="screen-grid">
-              <div class="field">
-                <label for="chekiCast">受付キャスト</label>
-                <input id="chekiCast" type="text" placeholder="キャスト名" />
-              </div>
-              <div class="field">
-                <label for="chekiCount">枚数</label>
-                <input id="chekiCount" type="number" min="0" value="1" />
-              </div>
-              <div class="field">
-                <label for="chekiMemo">メモ</label>
-                <input id="chekiMemo" type="text" placeholder="一旦メモ欄" />
-              </div>
+            <section class="cheki-remaining-section" aria-labelledby="chekiRemainingTitle">
+              <h3 id="chekiRemainingTitle">当日出勤キャストの撮影残り枚数</h3>
+              <div id="chekiRemainingList" class="cheki-remaining-list"></div>
+            </section>
+            <h3>チェキ会計履歴</h3>
+            <div class="cheki-accounting-table-wrap">
+              <table class="cheki-accounting-table" aria-label="チェキ会計一覧">
+                <thead>
+                  <tr>
+                    <th>会計日時</th>
+                    <th>キャスト名</th>
+                    <th>従業員番号</th>
+                    <th>撮影人数</th>
+                    <th>GameID</th>
+                    <th>主人様</th>
+                    <th>プラン</th>
+                    <th>備考</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody id="chekiAccountingList"></tbody>
+              </table>
+            </div>
+            <div id="chekiNotesModal" class="cheki-cast-select-overlay" hidden>
+              <section class="cheki-cast-select-dialog" role="dialog" aria-modal="true" aria-labelledby="chekiNotesTitle">
+                <h3 id="chekiNotesTitle">備考</h3>
+                <div id="chekiNotesContent"></div>
+                <div class="shift-form-actions">
+                  <button id="chekiNotesClose" class="action-btn" type="button">戻る</button>
+                </div>
+              </section>
             </div>
           </section>
 
@@ -2192,13 +2853,44 @@
 
   <script>
     const products = [
-      { id: "soft-drink", name: "ソフトドリンク", category: "drink", price: 800 },
-      { id: "alcohol", name: "アルコール", category: "drink", price: 1000 },
-      { id: "premium-drink", name: "プレミアムドリンク", category: "drink", price: 1500 },
-      { id: "cheki-one", name: "チェキ 1枚", category: "cheki", price: 1000 },
-      { id: "cheki-set", name: "チェキ 3枚セット", category: "cheki", price: 2800 },
-      { id: "cast-drink", name: "キャストドリンク", category: "cast-drink", price: 1200 },
-      { id: "cast-premium", name: "キャストプレミアム", category: "cast-drink", price: 2000 }
+      { id: "admission", name: "入場料", category: "entrance", price: 1000 },
+      { id: "admission-event", name: "入場料（イベント）", category: "entrance", price: 1500 },
+      { id: "tourism-set", name: "観光セット", category: "entrance", price: 5000 },
+      { id: "tourism-set-event", name: "観光セット（イベント）", category: "entrance", price: 5000 },
+      { id: "after-eight", name: "アフター8", category: "entrance", price: 3000 },
+      { id: "soft-drink", name: "ソフトドリンク", category: "food-drink", price: 500, isDrink: true },
+      { id: "snack", name: "おつまみ", category: "food-drink", price: 500 },
+      { id: "red-bull", name: "レッドブル", category: "food-drink", price: 600, isDrink: true },
+      { id: "alcohol", name: "アルコール", category: "food-drink", price: 700, isDrink: true },
+      { id: "maid-original", name: "メイドオリジナル", category: "food-drink", price: 700, isDrink: true },
+      { id: "alcohol-red-bull", name: "アルコール（レッドブル割り）", category: "food-drink", price: 800, isDrink: true },
+      { id: "bento", name: "お弁当（ドリンクと一緒に選択）", category: "food-drink", price: 500, requiresDrink: true },
+      { id: "cast-drink", name: "キャストドリンク", category: "cast-drink", tag: "other", price: 1000 },
+      { id: "comp-card", name: "コンプカード", category: "other", price: 1000 },
+      { id: "dealer-nomination", name: "ディーラー指名", category: "other", price: 2000 },
+      { id: "baccarat-deck", name: "バカラデッキ", category: "other", price: 3000 },
+      { id: "baccarat-nomination-set", name: "バカラ指名セット", category: "other", price: 5000 },
+      { id: "rental-table", name: "貸しテーブル", category: "other", price: 10000 },
+      { id: "cheki-simple", name: "シンプルチェキ", category: "cheki", price: 700 },
+      { id: "cheki-solid", name: "しっかりチェキ", category: "cheki", price: 1000 },
+      { id: "cheki-digital", name: "デジタルチェキ", category: "cheki", price: 1000 },
+      { id: "cheki-alter-me", name: "オルターミーチェキ", category: "cheki", price: 1500 },
+      { id: "champagne-merry", name: "シャンメリー", category: "champagne", price: 5000 },
+      { id: "white-tea", name: "WhiteTea", category: "champagne", price: 10000 },
+      { id: "sparkling-tea", name: "スパークリングTea", category: "champagne", price: 10000 },
+      { id: "event-bottle", name: "イベントボトル", category: "champagne", price: null, priceSelectable: true },
+      { id: "mavam", name: "マバム", category: "champagne", price: 18000 },
+      { id: "1688", name: "1688", category: "champagne", price: 20000 },
+      { id: "original-champagne-white", name: "オリシャン白", category: "champagne", price: 20000 },
+      { id: "original-champagne-black", name: "オリシャン黒", category: "champagne", price: 30000 },
+      { id: "veuve-clicquot", name: "ヴーヴクリコ", category: "champagne", price: 30000 },
+      { id: "moet-nir", name: "モエN.I.R.", category: "champagne", price: 50000 },
+      { id: "dom-perignon", name: "ドンペリニヨン", category: "champagne", price: 80000 },
+      { id: "fillico", name: "フィリコ", category: "champagne", price: 100000 },
+      { id: "belle-epoque", name: "ベルエポック", category: "champagne", price: 100000 },
+      { id: "fillico-wings", name: "フィリコ（羽付き）", category: "champagne", price: 120000 },
+      { id: "armand-gold", name: "アルマンドゴールド", category: "champagne", price: 150000 },
+      { id: "angel", name: "エンジェル", category: "champagne", price: 250000 }
     ];
 
     const loginScreen = document.querySelector("#loginScreen");
@@ -2206,6 +2898,8 @@
     const loginForm = document.querySelector("#loginForm");
     const loginError = document.querySelector("#loginError");
     const operatorLabel = document.querySelector("#operatorLabel");
+    const headerDateTime = document.querySelector("#headerDateTime");
+    const logoutBtn = document.querySelector("#logoutBtn");
     const workTitle = document.querySelector("#workTitle");
     const shiftSortControls = document.querySelector("#shiftSortControls");
     const shiftSortButtons = document.querySelectorAll("[data-shift-sort]");
@@ -2220,8 +2914,58 @@
     const roleFeatureTabs = document.querySelector("#roleFeatureTabs");
     const roleFeatureContent = document.querySelector("#roleFeatureContent");
     const workScreens = document.querySelectorAll(".work-screen");
+    const registerScreen = document.querySelector("#screen-register");
     const productGrid = document.querySelector("#productGrid");
+    const registerTagSelector = document.querySelector("#registerTagSelector");
     const registerTransferNotice = document.querySelector("#registerTransferNotice");
+    const castDrinkCheckoutDetails = document.querySelector("#castDrinkCheckoutDetails");
+    const castDrinkCheckoutDateTime = document.querySelector("#castDrinkCheckoutDateTime");
+    const castDrinkCheckoutCastName = document.querySelector("#castDrinkCheckoutCastName");
+    const castDrinkCheckoutEmployeeNumber = document.querySelector("#castDrinkCheckoutEmployeeNumber");
+    const castDrinkCheckoutQuantity = document.querySelector("#castDrinkCheckoutQuantity");
+    const chekiCheckoutDetails = document.querySelector("#chekiCheckoutDetails");
+    const chekiCheckoutDateTime = document.querySelector("#chekiCheckoutDateTime");
+    const chekiCheckoutCastName = document.querySelector("#chekiCheckoutCastName");
+    const chekiCheckoutEmployeeNumber = document.querySelector("#chekiCheckoutEmployeeNumber");
+    const chekiCheckoutPeople = document.querySelector("#chekiCheckoutPeople");
+    const chekiAdditionalCastField = document.querySelector("#chekiAdditionalCastField");
+    const chekiAdditionalCastList = document.querySelector("#chekiAdditionalCastList");
+    const chekiAddCastButton = document.querySelector("#chekiAddCastButton");
+    const chekiCastSelectModal = document.querySelector("#chekiCastSelectModal");
+    const chekiCastSelectOptions = document.querySelector("#chekiCastSelectOptions");
+    const chekiCastSelectConfirm = document.querySelector("#chekiCastSelectConfirm");
+    const chekiCastSelectCancel = document.querySelector("#chekiCastSelectCancel");
+    const eventBottlePriceModal = document.querySelector("#eventBottlePriceModal");
+    const eventBottlePriceSelect = document.querySelector("#eventBottlePriceSelect");
+    const eventBottlePriceConfirm = document.querySelector("#eventBottlePriceConfirm");
+    const eventBottlePriceCancel = document.querySelector("#eventBottlePriceCancel");
+    const paymentMethodModal = document.querySelector("#paymentMethodModal");
+    const paymentMethodList = document.querySelector("#paymentMethodList");
+    const paymentOrderBreakdown = document.querySelector("#paymentOrderBreakdown");
+    const paymentTargetAmount = document.querySelector("#paymentTargetAmount");
+    const paymentAllocatedAmount = document.querySelector("#paymentAllocatedAmount");
+    const paymentRemainingAmount = document.querySelector("#paymentRemainingAmount");
+    const paymentMethodError = document.querySelector("#paymentMethodError");
+    const paymentMethodConfirm = document.querySelector("#paymentMethodConfirm");
+    const paymentMethodCancel = document.querySelector("#paymentMethodCancel");
+    const historyEditModal = document.querySelector("#historyEditModal");
+    const historyEditPaymentList = document.querySelector("#historyEditPaymentList");
+    const historyEditOrderBreakdown = document.querySelector("#historyEditOrderBreakdown");
+    const historyEditCalculatedTotal = document.querySelector("#historyEditCalculatedTotal");
+    const historyEditError = document.querySelector("#historyEditError");
+    const historyEditSave = document.querySelector("#historyEditSave");
+    const historyEditCancel = document.querySelector("#historyEditCancel");
+    const chekiCheckoutGameId = document.querySelector("#chekiCheckoutGameId");
+    const chekiCheckoutMaster = document.querySelector("#chekiCheckoutMaster");
+    const chekiCheckoutPlan = document.querySelector("#chekiCheckoutPlan");
+    const chekiCheckoutNotes = document.querySelector("#chekiCheckoutNotes");
+    const champagneCheckoutDetails = document.querySelector("#champagneCheckoutDetails");
+    const champagneCheckoutDateTime = document.querySelector("#champagneCheckoutDateTime");
+    const champagneCheckoutCastName = document.querySelector("#champagneCheckoutCastName");
+    const champagneCheckoutEmployeeNumber = document.querySelector("#champagneCheckoutEmployeeNumber");
+    const champagneCheckoutQuantity = document.querySelector("#champagneCheckoutQuantity");
+    const checkoutInfoMount = document.querySelector("#checkoutInfoMount");
+    checkoutInfoMount.append(castDrinkCheckoutDetails, chekiCheckoutDetails, champagneCheckoutDetails);
     const searchBox = document.querySelector("#searchBox");
     const categoryFilter = document.querySelector("#categoryFilter");
     const cartList = document.querySelector("#cartList");
@@ -2235,6 +2979,11 @@
     const paymentMethod = document.querySelector("#paymentMethod");
     const completeBtn = document.querySelector("#completeBtn");
     const historyList = document.querySelector("#historyList");
+    const chekiAccountingList = document.querySelector("#chekiAccountingList");
+    const chekiRemainingList = document.querySelector("#chekiRemainingList");
+    const chekiNotesModal = document.querySelector("#chekiNotesModal");
+    const chekiNotesContent = document.querySelector("#chekiNotesContent");
+    const chekiNotesClose = document.querySelector("#chekiNotesClose");
     const clearCartBtn = document.querySelector("#clearCartBtn");
     const businessStatus = document.querySelector("#businessStatus");
     const endBusinessBtn = document.querySelector("#endBusinessBtn");
@@ -2302,6 +3051,18 @@
     const tableStatusOptions = ["ディーラー", "指名", "先生"];
     let shiftSortField = "startTime";
     let pendingTableCellEdit = null;
+    let pendingNominationPlacement = null;
+    let pendingChekiAdditionalRows = [];
+    let activeChekiAdditionalCheckout = false;
+    let activeChekiSharedDetails = null;
+    let selectedChekiAdditionalEmployeeNumbers = [];
+    let activeCheckoutCastRow = null;
+    let activeRegisterTag = "entrance";
+    let pendingCheckoutCheki = null;
+    let selectedPaymentOrderItemId = "";
+    let selectedHistoryEntryId = "";
+    let editingHistoryEntryId = "";
+    let historyEditItems = [];
     let attendanceViewMode = "attendance";
     let pendingAttendanceStatusChange = null;
     let editingAccountEmployeeNumber = null;
@@ -2390,6 +3151,92 @@
         lateEditing: false
       }
     ];
+
+    const temporaryStateStorageKey = "akibaguild-temporary-operating-state-v1";
+    let temporaryStateReady = false;
+
+    function saveTemporaryState() {
+      if (!temporaryStateReady) return;
+      try {
+        sessionStorage.setItem(temporaryStateStorageKey, JSON.stringify({
+          cart: Array.from(cart.values()),
+          history,
+          shareItems,
+          nominationSessions,
+          departureNotifications,
+          dismissedDepartureNotificationKeys: Array.from(dismissedDepartureNotificationKeys),
+          shiftRows,
+          tableSheetValues: Array.from(tableSheetValues.entries()),
+          attendanceViewMode,
+          discount: discountInput.value,
+          received: receivedInput.value,
+          paymentMethod: paymentMethod.value,
+          activeCheckoutCastRow,
+          chekiDraft: {
+            visible: !chekiCheckoutDetails.hidden,
+            shootingType: chekiCheckoutPeople.value,
+            gameId: chekiCheckoutGameId.value,
+            master: chekiCheckoutMaster.value,
+            plan: chekiCheckoutPlan.value,
+            notes: chekiCheckoutNotes.value,
+            selectedEmployeeNumbers: selectedChekiAdditionalEmployeeNumbers
+          }
+        }));
+      } catch (error) {
+        // 一時保存が使用できない環境ではメモリ上の動作を継続する。
+      }
+    }
+
+    function restoreTemporaryState() {
+      try {
+        const saved = JSON.parse(sessionStorage.getItem(temporaryStateStorageKey) || "null");
+        if (!saved || typeof saved !== "object") return;
+        if (Array.isArray(saved.cart)) {
+          cart.clear();
+          saved.cart.forEach((item) => {
+            if (item?.id) cart.set(item.id, item);
+          });
+        }
+        if (Array.isArray(saved.history)) history.splice(0, history.length, ...saved.history);
+        if (Array.isArray(saved.shareItems)) shareItems.splice(0, shareItems.length, ...saved.shareItems);
+        if (Array.isArray(saved.nominationSessions)) {
+          nominationSessions.splice(0, nominationSessions.length, ...saved.nominationSessions);
+        }
+        if (Array.isArray(saved.departureNotifications)) {
+          departureNotifications.splice(0, departureNotifications.length, ...saved.departureNotifications);
+        }
+        if (Array.isArray(saved.dismissedDepartureNotificationKeys)) {
+          dismissedDepartureNotificationKeys.clear();
+          saved.dismissedDepartureNotificationKeys.forEach((key) => dismissedDepartureNotificationKeys.add(key));
+        }
+        if (Array.isArray(saved.shiftRows)) shiftRows.splice(0, shiftRows.length, ...saved.shiftRows);
+        if (Array.isArray(saved.tableSheetValues)) {
+          tableSheetValues.clear();
+          saved.tableSheetValues.forEach(([key, value]) => tableSheetValues.set(key, value));
+        }
+        if (saved.attendanceViewMode === "scheduled" || saved.attendanceViewMode === "attendance") {
+          attendanceViewMode = saved.attendanceViewMode;
+        }
+        discountInput.value = saved.discount ?? "0";
+        receivedInput.value = saved.received ?? "";
+        if (saved.paymentMethod) paymentMethod.value = saved.paymentMethod;
+        activeCheckoutCastRow = saved.activeCheckoutCastRow || null;
+        syncProductCheckoutDetails();
+        if (saved.chekiDraft?.visible && !chekiCheckoutDetails.hidden) {
+          chekiCheckoutPeople.value = saved.chekiDraft.shootingType || "";
+          chekiCheckoutGameId.value = saved.chekiDraft.gameId || "";
+          chekiCheckoutMaster.value = saved.chekiDraft.master || "";
+          chekiCheckoutPlan.value = saved.chekiDraft.plan || "";
+          chekiCheckoutNotes.value = saved.chekiDraft.notes || "";
+          selectedChekiAdditionalEmployeeNumbers = Array.isArray(saved.chekiDraft.selectedEmployeeNumbers)
+            ? saved.chekiDraft.selectedEmployeeNumbers
+            : [];
+          updateChekiAdditionalCastField();
+        }
+      } catch (error) {
+        // 壊れた一時データは読み込まず、初期状態を使用する。
+      }
+    }
 
     const yen = new Intl.NumberFormat("ja-JP", {
       style: "currency",
@@ -2621,6 +3468,240 @@
       attendanceWorkingStatusDropZones.querySelectorAll(".is-dragover").forEach((zone) => zone.classList.remove("is-dragover"));
     }
 
+    function resetChekiCheckoutDetails() {
+      chekiCheckoutDetails.hidden = true;
+      chekiCheckoutDateTime.value = "";
+      chekiCheckoutCastName.value = "";
+      chekiCheckoutEmployeeNumber.value = "";
+      chekiCheckoutPeople.value = "";
+      chekiCheckoutPeople.disabled = false;
+      chekiAdditionalCastField.hidden = true;
+      selectedChekiAdditionalEmployeeNumbers = [];
+      chekiAdditionalCastList.innerHTML = "";
+      chekiCastSelectModal.hidden = true;
+      chekiCheckoutGameId.value = "";
+      chekiCheckoutMaster.value = "";
+      chekiCheckoutPlan.value = "";
+      chekiCheckoutNotes.value = "";
+    }
+
+    function checkoutDateTimeLabel() {
+      return new Date().toLocaleString("ja-JP", {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit"
+      });
+    }
+
+    function cartQuantityForCategory(category) {
+      return Array.from(cart.values())
+        .filter((item) => item.category === category)
+        .reduce((sum, item) => sum + item.qty, 0);
+    }
+
+    function chekiPhotoCountInCart() {
+      return Array.from(cart.values())
+        .filter((item) => item.category === "cheki")
+        .reduce((sum, item) => sum + item.qty, 0);
+    }
+
+    function resetBasicCheckoutDetails(section, dateTimeInput, castNameInput, employeeNumberInput, quantityInput) {
+      section.hidden = true;
+      dateTimeInput.value = "";
+      castNameInput.value = "";
+      employeeNumberInput.value = "";
+      quantityInput.value = "";
+    }
+
+    function prepareBasicCheckoutDetails(section, dateTimeInput, castNameInput, employeeNumberInput, quantityInput, quantity) {
+      section.hidden = false;
+      dateTimeInput.value = checkoutDateTimeLabel();
+      castNameInput.value = activeCheckoutCastRow?.name || "";
+      employeeNumberInput.value = activeCheckoutCastRow?.employeeNumber || "";
+      quantityInput.value = String(quantity);
+    }
+
+    function resetProductCheckoutDetails() {
+      resetBasicCheckoutDetails(
+        castDrinkCheckoutDetails,
+        castDrinkCheckoutDateTime,
+        castDrinkCheckoutCastName,
+        castDrinkCheckoutEmployeeNumber,
+        castDrinkCheckoutQuantity
+      );
+      resetChekiCheckoutDetails();
+      resetBasicCheckoutDetails(
+        champagneCheckoutDetails,
+        champagneCheckoutDateTime,
+        champagneCheckoutCastName,
+        champagneCheckoutEmployeeNumber,
+        champagneCheckoutQuantity
+      );
+    }
+
+    function syncProductCheckoutDetails() {
+      const castDrinkQuantity = cartQuantityForCategory("cast-drink");
+      if (castDrinkQuantity > 0) {
+        prepareBasicCheckoutDetails(
+          castDrinkCheckoutDetails,
+          castDrinkCheckoutDateTime,
+          castDrinkCheckoutCastName,
+          castDrinkCheckoutEmployeeNumber,
+          castDrinkCheckoutQuantity,
+          castDrinkQuantity
+        );
+      } else {
+        resetBasicCheckoutDetails(
+          castDrinkCheckoutDetails,
+          castDrinkCheckoutDateTime,
+          castDrinkCheckoutCastName,
+          castDrinkCheckoutEmployeeNumber,
+          castDrinkCheckoutQuantity
+        );
+      }
+
+      const chekiQuantity = cartQuantityForCategory("cheki");
+      if (chekiQuantity > 0 && chekiCheckoutDetails.hidden) {
+        prepareChekiCheckoutDetails(
+          activeCheckoutCastRow || {},
+          activeChekiAdditionalCheckout ? activeChekiSharedDetails : null,
+          activeChekiAdditionalCheckout
+        );
+      }
+      if (chekiQuantity === 0) resetChekiCheckoutDetails();
+
+      const champagneQuantity = cartQuantityForCategory("champagne");
+      if (champagneQuantity > 0) {
+        prepareBasicCheckoutDetails(
+          champagneCheckoutDetails,
+          champagneCheckoutDateTime,
+          champagneCheckoutCastName,
+          champagneCheckoutEmployeeNumber,
+          champagneCheckoutQuantity,
+          champagneQuantity
+        );
+      } else {
+        resetBasicCheckoutDetails(
+          champagneCheckoutDetails,
+          champagneCheckoutDateTime,
+          champagneCheckoutCastName,
+          champagneCheckoutEmployeeNumber,
+          champagneCheckoutQuantity
+        );
+      }
+    }
+
+    function eligibleChekiAdditionalRows(primaryEmployeeNumber) {
+      return shiftRows.filter((row) => (
+        row.employeeNumber !== primaryEmployeeNumber
+        && !["欠勤", "無欠", "退勤", "店舗外業務"].includes(row.status)
+      ));
+    }
+
+    function updateChekiAdditionalCastField() {
+      const needsAdditionalCasts = ["multiple-casts", "multiple-casts-with-master"].includes(chekiCheckoutPeople.value);
+      chekiAdditionalCastField.hidden = !needsAdditionalCasts;
+      if (!needsAdditionalCasts) {
+        selectedChekiAdditionalEmployeeNumbers = [];
+        chekiAdditionalCastList.innerHTML = "";
+        return;
+      }
+      renderSelectedChekiAdditionalCasts();
+    }
+
+    function renderSelectedChekiAdditionalCasts() {
+      const selectedRows = selectedChekiAdditionalEmployeeNumbers
+        .map((employeeNumber) => shiftRows.find((row) => row.employeeNumber === employeeNumber))
+        .filter(Boolean);
+      chekiAdditionalCastList.innerHTML = selectedRows.length
+        ? selectedRows.map((row) => `
+            <div class="cheki-selected-cast">
+              <strong>${escapeHtml(row.name)}</strong>
+              <span>${escapeHtml(row.employeeNumber)}</span>
+            </div>
+          `).join("")
+        : `<p class="subtle">追加キャストは選択されていません。</p>`;
+    }
+
+    function openChekiCastSelectModal() {
+      const eligibleRows = eligibleChekiAdditionalRows(chekiCheckoutEmployeeNumber.value);
+      chekiCastSelectOptions.innerHTML = eligibleRows.length
+        ? eligibleRows.map((row) => `
+            <label class="shift-request-account-row">
+              <input type="checkbox" data-cheki-cast-select-option value="${escapeHtml(row.employeeNumber)}"
+                ${selectedChekiAdditionalEmployeeNumbers.includes(row.employeeNumber) ? "checked" : ""} />
+              <strong>${escapeHtml(row.name)}</strong>
+              <span>${escapeHtml(row.employeeNumber)}</span>
+              <span>${escapeHtml(attendanceStatusDisplay(row.status))}</span>
+            </label>
+          `).join("")
+        : `<p class="empty">選択できる当日出勤キャストはいません。</p>`;
+      chekiCastSelectModal.hidden = false;
+    }
+
+    function closeChekiCastSelectModal() {
+      chekiCastSelectModal.hidden = true;
+    }
+
+    function confirmChekiCastSelection() {
+      selectedChekiAdditionalEmployeeNumbers = Array.from(
+        chekiCastSelectOptions.querySelectorAll("[data-cheki-cast-select-option]:checked")
+      ).map((input) => input.value);
+      renderSelectedChekiAdditionalCasts();
+      closeChekiCastSelectModal();
+      saveTemporaryState();
+    }
+
+    function prepareChekiCheckoutDetails(row, sharedDetails = null, isAdditional = false) {
+      resetChekiCheckoutDetails();
+      chekiCheckoutDetails.hidden = false;
+      chekiCheckoutDateTime.value = checkoutDateTimeLabel();
+      chekiCheckoutCastName.value = row.name || "";
+      chekiCheckoutEmployeeNumber.value = row.employeeNumber || "";
+      if (isAdditional) {
+        chekiCheckoutPeople.value = "cast-only";
+        chekiCheckoutPeople.disabled = true;
+      }
+      if (sharedDetails) {
+        chekiCheckoutGameId.value = sharedDetails.gameId || "";
+        chekiCheckoutMaster.value = sharedDetails.master || "";
+        chekiCheckoutPlan.value = sharedDetails.plan || "";
+        chekiCheckoutNotes.value = sharedDetails.notes || "";
+      }
+      updateChekiAdditionalCastField();
+    }
+
+    function readChekiCheckoutDetails() {
+      if (chekiCheckoutDetails.hidden) return null;
+      const shootingType = chekiCheckoutPeople.value;
+      const gameId = chekiCheckoutGameId.value.trim();
+      const master = chekiCheckoutMaster.value.trim();
+      const plan = chekiCheckoutPlan.value.trim();
+      const additionalCastEmployeeNumbers = [...selectedChekiAdditionalEmployeeNumbers];
+      if (!shootingType || !gameId || !master || !plan) {
+        window.alert("撮影人数、GameID、ご主人様、プランを入力してください。");
+        return false;
+      }
+      if (["multiple-casts", "multiple-casts-with-master"].includes(shootingType)
+        && additionalCastEmployeeNumbers.length === 0) {
+        window.alert("追加で撮影するキャストを当日出勤欄から選択してください。");
+        return false;
+      }
+      return {
+        checkoutDateTime: chekiCheckoutDateTime.value,
+        castName: chekiCheckoutCastName.value,
+        employeeNumber: chekiCheckoutEmployeeNumber.value,
+        shootingType,
+        additionalCastEmployeeNumbers,
+        gameId,
+        master,
+        plan,
+        notes: chekiCheckoutNotes.value.trim()
+      };
+    }
+
     function workingAttendanceTransitionAllowed(row, status) {
       if (!row || ["欠勤", "無欠", "退勤", "店舗外業務"].includes(row.status)) return false;
       if (!row.hasCheckedIn) return false;
@@ -2676,12 +3757,46 @@
         champagne: "シャンパン"
       };
       const saleLabel = saleLabels[saleType] || "会計";
+      activeCheckoutCastRow = row;
       registerTransferNotice.hidden = false;
       registerTransferNotice.textContent = `対象キャスト: ${row.name} / 会計内容: ${saleLabel}`;
+      resetProductCheckoutDetails();
       searchBox.value = "";
-      categoryFilter.value = saleType === "cast-drink" ? "cast-drink" : saleType === "cheki" ? "cheki" : "all";
+      categoryFilter.value = saleType === "cast-drink"
+        ? "cast-drink"
+        : saleType === "cheki"
+          ? "cheki"
+          : saleType === "champagne"
+            ? "champagne"
+            : "all";
       renderProducts();
-      showWorkScreen("register");
+      registerScreen.classList.add("nomination-checkout-overlay");
+      registerScreen.setAttribute("role", "dialog");
+      registerScreen.setAttribute("aria-modal", "true");
+      registerScreen.setAttribute("aria-label", `${saleLabel}精算`);
+      registerScreen.scrollTop = 0;
+    }
+
+    function openNextChekiAdditionalCheckout() {
+      while (pendingChekiAdditionalRows.length > 0) {
+        const row = pendingChekiAdditionalRows.shift();
+        if (!row) continue;
+        activeChekiAdditionalCheckout = true;
+        activeCheckoutCastRow = row;
+        resetProductCheckoutDetails();
+        registerTransferNotice.hidden = false;
+        registerTransferNotice.textContent = `追加チェキ精算 / 主体キャスト: ${row.name} / 従業員番号: ${row.employeeNumber}`;
+        searchBox.value = "";
+        categoryFilter.value = "cheki";
+        renderProducts();
+        registerScreen.classList.add("nomination-checkout-overlay");
+        registerScreen.setAttribute("role", "dialog");
+        registerScreen.setAttribute("aria-modal", "true");
+        registerScreen.setAttribute("aria-label", "追加チェキ精算");
+        registerScreen.scrollTop = 0;
+        return true;
+      }
+      return false;
     }
 
     function applyAttendanceStatus(row, status) {
@@ -2904,6 +4019,7 @@
       tableSheetValues.set(nameKey, nextNames);
       tableSheetValues.set(minuteKey, nextMinutes);
       tableSheetValues.set(statusKey, nextStatuses);
+      saveTemporaryState();
     }
 
     function nominationExactMinute(cell, minute) {
@@ -2950,6 +4066,81 @@
         if (!alreadyExisted) createNominationSession(cell, entry);
       });
       renderSideShareList();
+    }
+
+    function openRegisterFromNomination(cell, entry, previousEntries, nextEntries) {
+      const columnIndex = Number(cell.dataset.tableColumn);
+      const tableName = tableColumnLabels[columnIndex].replace("\n", " / ");
+      const exactMinute = nominationExactMinute(cell, entry.minute);
+      const startTime = minutesToClock((exactMinute + 24 * 60) % (24 * 60));
+      pendingNominationPlacement = {
+        type: "new",
+        cell,
+        entry: { ...entry },
+        previousEntries: previousEntries.map((item) => ({ ...item })),
+        nextEntries: nextEntries.map((item) => ({ ...item }))
+      };
+      activeCheckoutCastRow = shiftRows.find((row) => row.name === entry.name)
+        || { name: entry.name, employeeNumber: "" };
+      registerTransferNotice.hidden = false;
+      registerTransferNotice.textContent = `指名精算（会計完了後に台管理へ配置） / 対象キャスト: ${entry.name} / テーブル: ${tableName} / 指名開始: ${startTime}`;
+      resetProductCheckoutDetails();
+      searchBox.value = "";
+      categoryFilter.value = "all";
+      renderProducts();
+      registerScreen.classList.add("nomination-checkout-overlay");
+      registerScreen.setAttribute("role", "dialog");
+      registerScreen.setAttribute("aria-modal", "true");
+      registerScreen.setAttribute("aria-label", "指名精算");
+      registerScreen.scrollTop = 0;
+    }
+
+    function openRegisterFromNominationContinuation(session) {
+      pendingNominationPlacement = {
+        type: "continuation",
+        session
+      };
+      activeCheckoutCastRow = shiftRows.find((row) => row.name === session.name)
+        || { name: session.name, employeeNumber: "" };
+      registerTransferNotice.hidden = false;
+      registerTransferNotice.textContent = `指名継続精算（会計完了後に30分追加） / 対象キャスト: ${session.name} / テーブル: ${session.tableName} / ${session.count + 1}回目`;
+      resetProductCheckoutDetails();
+      searchBox.value = "";
+      categoryFilter.value = "all";
+      renderProducts();
+      registerScreen.classList.add("nomination-checkout-overlay");
+      registerScreen.setAttribute("role", "dialog");
+      registerScreen.setAttribute("aria-modal", "true");
+      registerScreen.setAttribute("aria-label", "指名継続精算");
+      registerScreen.scrollTop = 0;
+    }
+
+    function closeNominationCheckoutOverlay() {
+      registerScreen.classList.remove("nomination-checkout-overlay");
+      registerScreen.removeAttribute("role");
+      registerScreen.removeAttribute("aria-modal");
+      registerScreen.setAttribute("aria-label", "レジ");
+      resetProductCheckoutDetails();
+      activeCheckoutCastRow = null;
+      searchBox.value = "";
+      categoryFilter.value = activeRegisterTag;
+    }
+
+    function commitPendingNominationPlacement() {
+      if (!pendingNominationPlacement) return;
+      if (pendingNominationPlacement.type === "continuation") {
+        continueNominationSession(pendingNominationPlacement.session);
+        pendingNominationPlacement = null;
+        return;
+      }
+      const { cell, previousEntries, nextEntries } = pendingNominationPlacement;
+      setTableCellEntries(cell, nextEntries);
+      registerNewNominationSessions(cell, previousEntries, nextEntries);
+      pendingNominationPlacement = null;
+    }
+
+    function cancelPendingNominationPlacement() {
+      pendingNominationPlacement = null;
     }
 
     function continueNominationSession(session) {
@@ -3067,33 +4258,210 @@
 
     function currentTotals() {
       const subtotal = Array.from(cart.values()).reduce((sum, item) => sum + item.price * item.qty, 0);
-      const tax = Math.floor(subtotal * 0.1);
       const discount = Number(discountInput.value || 0);
-      const total = Math.max(0, subtotal + tax - discount);
+      const total = Math.max(0, subtotal - discount);
+      const tax = Math.floor(total * 10 / 110);
       const received = Number(receivedInput.value || 0);
       const change = Math.max(0, received - total);
       const count = Array.from(cart.values()).reduce((sum, item) => sum + item.qty, 0);
       return { subtotal, tax, discount, total, received, change, count };
     }
 
+    function selectedPaymentAllocations() {
+      return Array.from(paymentMethodList.querySelectorAll(".payment-method-row"))
+        .filter((row) => row.querySelector('input[type="checkbox"]').checked)
+        .map((row) => ({
+          name: row.querySelector('input[type="checkbox"]').value,
+          amount: Number(row.querySelector(".payment-method-amount").value || 0)
+        }));
+    }
+
+    function renderPaymentOrderBreakdown() {
+      const totals = currentTotals();
+      paymentOrderBreakdown.innerHTML = Array.from(cart.values()).map((item) => `
+        <div class="payment-order-item${selectedPaymentOrderItemId === item.id ? " is-selected" : ""}"
+          data-payment-order-id="${escapeHtml(item.id)}">
+          <div class="payment-order-item-main">
+            <span>${escapeHtml(item.name)} × ${item.qty}</span>
+            <strong>${formatYen(item.price * item.qty)}</strong>
+          </div>
+          <button class="action-btn danger-btn payment-order-remove" type="button"
+            data-payment-order-remove="${escapeHtml(item.id)}"
+            ${selectedPaymentOrderItemId === item.id ? "" : "hidden"}>消去する</button>
+        </div>
+      `).join("") || `<p class="empty">会計内容がありません。</p>`;
+      if (totals.discount > 0) {
+        paymentOrderBreakdown.insertAdjacentHTML("beforeend", `
+          <div class="payment-order-item">
+            <span>割引</span>
+            <strong>-${formatYen(totals.discount)}</strong>
+          </div>
+        `);
+      }
+      paymentTargetAmount.textContent = formatYen(totals.total);
+    }
+
+    function autoFillRemainingPaymentAmount(selectedRows, target) {
+      if (selectedRows.length <= 1) return;
+      const inputs = selectedRows.map((row) => row.querySelector(".payment-method-amount"));
+      const emptyInputs = inputs.filter((input) => input.value === "");
+      if (emptyInputs.length !== 1) return;
+      const enteredTotal = inputs
+        .filter((input) => input.value !== "")
+        .reduce((sum, input) => sum + Number(input.value || 0), 0);
+      const remaining = target - enteredTotal;
+      if (remaining < 0) return;
+      emptyInputs[0].value = remaining;
+      emptyInputs[0].dataset.autoCalculated = "true";
+    }
+
+    function updatePaymentMethodModal() {
+      const totals = currentTotals();
+      const target = totals.total;
+      const selectedRows = Array.from(paymentMethodList.querySelectorAll(".payment-method-row"))
+        .filter((row) => row.querySelector('input[type="checkbox"]').checked);
+      const isSplitPayment = selectedRows.length > 1;
+
+      paymentMethodList.querySelectorAll(".payment-method-row").forEach((row) => {
+        const checkbox = row.querySelector('input[type="checkbox"]');
+        const amountInput = row.querySelector(".payment-method-amount");
+        amountInput.hidden = !checkbox.checked || !isSplitPayment;
+        if (!checkbox.checked) amountInput.value = "";
+      });
+
+      if (selectedRows.length === 1) {
+        const amountInput = selectedRows[0].querySelector(".payment-method-amount");
+        amountInput.value = target;
+        amountInput.dataset.autoCalculated = "true";
+      }
+
+      autoFillRemainingPaymentAmount(selectedRows, target);
+      const allocations = selectedPaymentAllocations();
+      const allocated = allocations.reduce((sum, item) => sum + item.amount, 0);
+      const remaining = target - allocated;
+      paymentTargetAmount.textContent = formatYen(target);
+      paymentAllocatedAmount.textContent = formatYen(allocated);
+      paymentRemainingAmount.textContent = remaining < 0
+        ? `-${formatYen(Math.abs(remaining))}`
+        : formatYen(remaining);
+
+      if (totals.count === 0) {
+        paymentMethodError.textContent = "会計内容がありません。戻るボタンで商品選択へ戻ってください。";
+      } else if (!selectedRows.length) {
+        paymentMethodError.textContent = "支払方法を選択してください。";
+      } else if (isSplitPayment && allocations.some((item) => item.amount <= 0)) {
+        paymentMethodError.textContent = "選択した支払方法ごとの金額を入力してください。";
+      } else if (remaining !== 0) {
+        paymentMethodError.textContent = remaining > 0
+          ? `合計金額まで残り${formatYen(remaining)}です。`
+          : `合計金額を${formatYen(Math.abs(remaining))}超えています。`;
+      } else {
+        paymentMethodError.textContent = "";
+      }
+      paymentMethodConfirm.disabled = Boolean(paymentMethodError.textContent);
+    }
+
+    function openPaymentMethodModal(cheki) {
+      pendingCheckoutCheki = cheki || null;
+      selectedPaymentOrderItemId = "";
+      paymentMethodList.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
+        checkbox.checked = false;
+      });
+      paymentMethodList.querySelectorAll(".payment-method-amount").forEach((input) => {
+        input.value = "";
+        input.hidden = true;
+        delete input.dataset.autoCalculated;
+      });
+      paymentMethodModal.hidden = false;
+      renderPaymentOrderBreakdown();
+      updatePaymentMethodModal();
+      paymentMethodList.querySelector('input[type="checkbox"]')?.focus();
+    }
+
+    function closePaymentMethodModal() {
+      paymentMethodModal.hidden = true;
+      pendingCheckoutCheki = null;
+      selectedPaymentOrderItemId = "";
+    }
+
+    function completeCheckout(paymentAllocations) {
+      const cheki = pendingCheckoutCheki;
+      const totals = currentTotals();
+      const method = paymentAllocations
+        .map((item) => paymentAllocations.length > 1 ? `${item.name} ${formatYen(item.amount)}` : item.name)
+        .join(" ＋ ");
+      paymentMethodModal.hidden = true;
+      pendingCheckoutCheki = null;
+      history.unshift({
+        id: `checkout-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+        time: new Date().toLocaleTimeString("ja-JP", { hour: "2-digit", minute: "2-digit" }),
+        method,
+        payments: paymentAllocations,
+        items: Array.from(cart.values()).map((item) => ({
+          id: item.id,
+          sourceProductId: item.sourceProductId || item.id,
+          name: item.name,
+          price: item.price,
+          qty: item.qty,
+          category: item.category
+        })),
+        count: totals.count,
+        total: totals.total,
+        cheki
+      });
+      commitPendingNominationPlacement();
+      if (cheki && !activeChekiAdditionalCheckout) {
+        activeChekiSharedDetails = { ...cheki };
+        pendingChekiAdditionalRows = cheki.additionalCastEmployeeNumbers
+          .map((employeeNumber) => shiftRows.find((row) => row.employeeNumber === employeeNumber))
+          .filter(Boolean);
+      }
+      cart.clear();
+      receivedInput.value = "";
+      discountInput.value = 0;
+      if (cheki && openNextChekiAdditionalCheckout()) {
+        renderCart();
+        renderHistory();
+        return;
+      }
+      pendingChekiAdditionalRows = [];
+      activeChekiAdditionalCheckout = false;
+      activeChekiSharedDetails = null;
+      registerTransferNotice.hidden = true;
+      registerTransferNotice.textContent = "";
+      closeNominationCheckoutOverlay();
+      renderCart();
+      renderProducts();
+      renderHistory();
+    }
+
     function renderProducts() {
       const query = searchBox.value.trim().toLowerCase();
       const category = categoryFilter.value;
       const visibleProducts = products.filter((product) => {
-        const matchesCategory = category === "all" || product.category === category;
+        const matchesCategory = category === "all"
+          || product.category === category
+          || (category === "other" && product.tag === "other");
         const matchesQuery = product.name.toLowerCase().includes(query);
         return matchesCategory && matchesQuery;
       });
 
-      productGrid.innerHTML = visibleProducts.map((product) => `
-        <button class="product" type="button" data-product-id="${product.id}">
-          <strong>${product.name}</strong>
-          <span>${formatYen(product.price)}</span>
-        </button>
-      `).join("") || `<p class="empty">該当する商品がありません。</p>`;
+      productGrid.innerHTML = visibleProducts.map((product) => {
+        const quantity = Array.from(cart.values())
+          .filter((item) => (item.sourceProductId || item.id) === product.id)
+          .reduce((sum, item) => sum + item.qty, 0);
+        return `
+          <button class="product${quantity ? " is-selected" : ""}" type="button" data-product-id="${product.id}">
+            <strong>${product.name}</strong>
+            <span>${product.priceSelectable ? "価格選択" : formatYen(product.price)}</span>
+            ${quantity ? `<span class="product-quantity">${quantity}</span>` : ""}
+          </button>
+        `;
+      }).join("") || `<p class="empty">該当する商品がありません。</p>`;
     }
 
     function renderCart() {
+      saveTemporaryState();
       const totals = currentTotals();
       itemCount.textContent = `${totals.count}点`;
       subtotalEl.textContent = formatYen(totals.subtotal);
@@ -3123,26 +4491,276 @@
       `).join("");
     }
 
-    function renderHistory() {
-      if (history.length === 0) {
-        historyList.innerHTML = `<p class="subtle">まだ会計履歴はありません。</p>`;
-        return;
+    function historyItemsDetailHtml(entry) {
+      if (!Array.isArray(entry.items) || !entry.items.length) {
+        return `<div class="history-entry-detail-row"><span>詳細</span><span>過去データのため保存なし</span></div>`;
       }
-
-      historyList.innerHTML = history.slice(0, 6).map((entry) => `
-        <div class="history-entry">
-          <span>${entry.time} / ${entry.method} / ${entry.count}点</span>
-          <strong>${formatYen(entry.total)}</strong>
+      return entry.items.map((item) => `
+        <div class="history-entry-detail-row">
+          <span>${escapeHtml(item.name)} × ${Number(item.qty || 0)}</span>
+          <strong>${formatYen(Number(item.price || 0) * Number(item.qty || 0))}</strong>
         </div>
       `).join("");
     }
 
-    function addToCart(productId) {
+    function historyPaymentsDetailHtml(entry) {
+      const payments = Array.isArray(entry.payments) && entry.payments.length
+        ? entry.payments
+        : [{ name: entry.method || "不明", amount: Number(entry.total || 0) }];
+      return payments.map((payment) => `
+        <div class="history-entry-detail-row">
+          <span>${escapeHtml(payment.name)}</span>
+          <strong>${formatYen(Number(payment.amount || 0))}</strong>
+        </div>
+      `).join("");
+    }
+
+    function renderHistory() {
+      history.forEach((entry, index) => {
+        if (!entry.id) entry.id = `checkout-restored-${Date.now()}-${index}`;
+      });
+      saveTemporaryState();
+      if (history.length === 0) {
+        selectedHistoryEntryId = "";
+        historyList.innerHTML = `<p class="subtle">まだ会計履歴はありません。</p>`;
+        renderChekiAccountingList();
+        return;
+      }
+
+      historyList.innerHTML = history.slice(0, 6).map((entry) => `
+        <div class="history-entry${selectedHistoryEntryId === entry.id ? " is-selected" : ""}"
+          data-history-entry-id="${escapeHtml(entry.id)}">
+          <div class="history-entry-main">
+            <div class="history-entry-head">
+              <strong>会計時刻 ${escapeHtml(entry.time)}</strong>
+              <span>${Number(entry.count || 0)}点</span>
+            </div>
+            <div class="history-entry-detail">
+              <div class="history-entry-detail-title">商品内訳</div>
+              ${historyItemsDetailHtml(entry)}
+            </div>
+            <div class="history-entry-detail">
+              <div class="history-entry-detail-title">支払内訳</div>
+              ${historyPaymentsDetailHtml(entry)}
+            </div>
+            ${entry.cheki ? `
+              <div class="history-entry-detail">
+                <div class="history-entry-detail-title">チェキ情報</div>
+                <div class="history-entry-detail-row"><span>キャスト</span><span>${escapeHtml(entry.cheki.castName)} / ${escapeHtml(entry.cheki.employeeNumber)}</span></div>
+                <div class="history-entry-detail-row"><span>GameID</span><span>${escapeHtml(entry.cheki.gameId)}</span></div>
+                <div class="history-entry-detail-row"><span>プラン</span><span>${escapeHtml(entry.cheki.plan)}</span></div>
+              </div>
+            ` : ""}
+            <div class="history-entry-total">
+              <span>合計金額</span>
+              <strong>${formatYen(entry.total)}</strong>
+            </div>
+          </div>
+          <div class="history-entry-actions" ${selectedHistoryEntryId === entry.id ? "" : "hidden"}>
+            <button class="action-btn" type="button" data-history-action="edit" data-history-id="${escapeHtml(entry.id)}">編集</button>
+            <button class="action-btn danger-btn" type="button" data-history-action="delete" data-history-id="${escapeHtml(entry.id)}">消去</button>
+          </div>
+        </div>
+      `).join("");
+      renderChekiAccountingList();
+    }
+
+    function currentHistoryEditTotal() {
+      return historyEditItems.reduce((sum, item) => sum + Number(item.price || 0) * Number(item.qty || 0), 0);
+    }
+
+    function selectedHistoryEditPayments() {
+      return Array.from(historyEditPaymentList.querySelectorAll(".payment-method-row"))
+        .filter((row) => row.querySelector('input[type="checkbox"]').checked)
+        .map((row) => ({
+          name: row.querySelector('input[type="checkbox"]').value,
+          amount: Number(row.querySelector(".payment-method-amount").value || 0)
+        }));
+    }
+
+    function renderHistoryEditOrderBreakdown() {
+      historyEditOrderBreakdown.innerHTML = historyEditItems.map((item) => `
+        <div class="payment-order-item">
+          <div class="payment-order-item-main">
+            <span>${escapeHtml(item.name)}</span>
+            <strong>${formatYen(Number(item.price || 0))}</strong>
+          </div>
+          <input class="history-edit-item-qty" type="number" min="1" step="1"
+            value="${Number(item.qty || 1)}" aria-label="${escapeHtml(item.name)}の数量"
+            data-history-edit-item-qty="${escapeHtml(item.id)}" />
+          <button class="action-btn danger-btn" type="button"
+            data-history-edit-item-delete="${escapeHtml(item.id)}">消去</button>
+        </div>
+      `).join("") || `<p class="empty">会計内訳がありません。</p>`;
+      historyEditCalculatedTotal.textContent = formatYen(currentHistoryEditTotal());
+    }
+
+    function updateHistoryEditPaymentState() {
+      const target = currentHistoryEditTotal();
+      const selectedRows = Array.from(historyEditPaymentList.querySelectorAll(".payment-method-row"))
+        .filter((row) => row.querySelector('input[type="checkbox"]').checked);
+      const isSplitPayment = selectedRows.length > 1;
+      historyEditPaymentList.querySelectorAll(".payment-method-row").forEach((row) => {
+        const checkbox = row.querySelector('input[type="checkbox"]');
+        const amountInput = row.querySelector(".payment-method-amount");
+        amountInput.hidden = !checkbox.checked || !isSplitPayment;
+        if (!checkbox.checked) amountInput.value = "";
+      });
+      if (selectedRows.length === 1) {
+        selectedRows[0].querySelector(".payment-method-amount").value = target;
+      }
+      autoFillRemainingPaymentAmount(selectedRows, target);
+      const payments = selectedHistoryEditPayments();
+      const allocated = payments.reduce((sum, payment) => sum + payment.amount, 0);
+      if (!historyEditItems.length) {
+        historyEditError.textContent = "会計内訳を1件以上残してください。";
+      } else if (!selectedRows.length) {
+        historyEditError.textContent = "支払方法を選択してください。";
+      } else if (isSplitPayment && payments.some((payment) => payment.amount <= 0)) {
+        historyEditError.textContent = "選択した支払方法ごとの金額を入力してください。";
+      } else if (allocated !== target) {
+        historyEditError.textContent = `支払金額を合計金額の${formatYen(target)}に合わせてください。`;
+      } else {
+        historyEditError.textContent = "";
+      }
+      historyEditSave.disabled = Boolean(historyEditError.textContent);
+    }
+
+    function openHistoryEditModal(entryId) {
+      const entry = history.find((item) => item.id === entryId);
+      if (!entry) return;
+      editingHistoryEntryId = entryId;
+      historyEditItems = Array.isArray(entry.items) && entry.items.length
+        ? entry.items.map((item) => ({ ...item }))
+        : [{
+            id: `legacy-${entry.id}`,
+            sourceProductId: `legacy-${entry.id}`,
+            name: "過去の会計内容",
+            price: Number(entry.total || 0),
+            qty: 1,
+            category: entry.cheki ? "cheki" : ""
+          }];
+      const savedPayments = Array.isArray(entry.payments) && entry.payments.length
+        ? entry.payments
+        : [{ name: entry.method, amount: Number(entry.total || 0) }];
+      historyEditPaymentList.querySelectorAll(".payment-method-row").forEach((row) => {
+        const checkbox = row.querySelector('input[type="checkbox"]');
+        const amountInput = row.querySelector(".payment-method-amount");
+        const savedPayment = savedPayments.find((payment) => payment.name === checkbox.value);
+        checkbox.checked = Boolean(savedPayment);
+        amountInput.value = savedPayment ? Number(savedPayment.amount || 0) : "";
+        delete amountInput.dataset.autoCalculated;
+      });
+      historyEditModal.hidden = false;
+      renderHistoryEditOrderBreakdown();
+      updateHistoryEditPaymentState();
+      historyEditPaymentList.querySelector('input[type="checkbox"]:checked')?.focus();
+    }
+
+    function closeHistoryEditModal() {
+      historyEditModal.hidden = true;
+      editingHistoryEntryId = "";
+      historyEditItems = [];
+      historyEditError.textContent = "";
+    }
+
+    function chekiShootingTypeLabel(value) {
+      const labels = {
+        "cast-only": "キャストのみ",
+        "master-and-cast": "ご主人様と",
+        "multiple-casts": "キャスト複数",
+        "multiple-casts-with-master": "キャスト複数（ご主人様あり）"
+      };
+      return labels[value] || String(value || "");
+    }
+
+    function renderChekiAccountingList() {
+      const chekiEntries = history.filter((entry) => entry.cheki);
+      chekiAccountingList.innerHTML = chekiEntries.length
+        ? chekiEntries.map((entry) => {
+            const cheki = entry.cheki;
+            return `
+              <tr class="${cheki.photographed ? "is-photographed" : ""}">
+                <td>${escapeHtml(cheki.checkoutDateTime || entry.time || "")}</td>
+                <td>${escapeHtml(cheki.castName || "")}</td>
+                <td>${escapeHtml(cheki.employeeNumber || "")}</td>
+                <td>${escapeHtml(chekiShootingTypeLabel(cheki.shootingType || cheki.people))}</td>
+                <td>${escapeHtml(cheki.gameId || "")}</td>
+                <td>${escapeHtml(cheki.master || "")}</td>
+                <td>${escapeHtml(cheki.plan || "")}</td>
+                <td>
+                  ${cheki.notes
+                    ? `<button class="action-btn" type="button"
+                        data-cheki-history-action="notes"
+                        data-history-id="${escapeHtml(entry.id || "")}">備考</button>`
+                    : "なし"}
+                </td>
+                <td>
+                  <div class="cheki-history-actions">
+                    <button class="action-btn primary-action" type="button"
+                      data-cheki-history-action="photographed"
+                      data-history-id="${escapeHtml(entry.id || "")}"
+                      ${cheki.photographed ? "disabled" : ""}>${cheki.photographed ? "撮影済み" : "撮影"}</button>
+                    <button class="action-btn danger-btn" type="button"
+                      data-cheki-history-action="cancel"
+                      data-history-id="${escapeHtml(entry.id || "")}">取り消し</button>
+                  </div>
+                </td>
+              </tr>
+            `;
+          }).join("")
+        : `<tr><td colspan="9" class="empty">チェキ会計履歴はありません。</td></tr>`;
+      renderChekiRemainingList();
+    }
+
+    function renderChekiRemainingList() {
+      const todayRows = shiftRows.filter((row) => (
+        !["欠勤", "無欠", "退勤", "店舗外業務"].includes(row.status)
+      ));
+      chekiRemainingList.innerHTML = todayRows.length
+        ? todayRows.map((row) => {
+            const remaining = history
+              .filter((entry) => (
+                entry.cheki
+                && !entry.cheki.photographed
+                && entry.cheki.employeeNumber === row.employeeNumber
+              ))
+              .reduce((sum, entry) => sum + Number(entry.cheki.photoCount || 1), 0);
+            return `
+              <div class="cheki-remaining-card">
+                <span>${escapeHtml(row.name)}</span>
+                <strong>${remaining}枚</strong>
+              </div>
+            `;
+          }).join("")
+        : `<p class="empty">当日出勤キャストはいません。</p>`;
+    }
+
+    function addToCart(productId, selectedPrice = null) {
       const product = products.find((item) => item.id === productId);
       if (!product) return;
-      const existing = cart.get(product.id);
-      cart.set(product.id, { ...product, qty: existing ? existing.qty + 1 : 1 });
+      let price = product.price;
+      let cartProductId = product.id;
+      if (product.priceSelectable) {
+        if (selectedPrice === null) {
+          eventBottlePriceModal.hidden = false;
+          return;
+        }
+        price = Number(selectedPrice);
+        cartProductId = `${product.id}-${price}`;
+      }
+      const existing = cart.get(cartProductId);
+      cart.set(cartProductId, {
+        ...product,
+        id: cartProductId,
+        sourceProductId: product.id,
+        price,
+        name: product.priceSelectable ? `${product.name}（${formatYen(price)}）` : product.name,
+        qty: existing ? existing.qty + 1 : 1
+      });
+      syncProductCheckoutDetails();
       renderCart();
+      renderProducts();
     }
 
     function updateCart(productId, action) {
@@ -3152,7 +4770,19 @@
       if (action === "increase") item.qty += 1;
       if (action === "decrease") item.qty -= 1;
       if (action === "remove" || item.qty <= 0) cart.delete(productId);
+      syncProductCheckoutDetails();
       renderCart();
+      renderProducts();
+    }
+
+    function validateCartRules() {
+      const hasBento = Array.from(cart.values()).some((item) => item.sourceProductId === "bento" || item.id === "bento");
+      const hasDrink = Array.from(cart.values()).some((item) => item.isDrink && item.qty > 0);
+      if (hasBento && !hasDrink) {
+        window.alert("お弁当はドリンクと一緒に選択してください。");
+        return false;
+      }
+      return true;
     }
 
     function showWorkScreen(screenId) {
@@ -4282,6 +5912,7 @@
     }
 
     function renderShareList() {
+      saveTemporaryState();
       if (shareItems.length === 0) {
         shareList.innerHTML = `<p class="empty">共有情報はまだありません。</p>`;
         return;
@@ -4370,6 +6001,7 @@
     function renderSideShareList() {
       const now = new Date();
       updateDepartureNotifications(now);
+      saveTemporaryState();
       const notifiedItems = shareItems.filter((item) => shouldShowShareItem(item, now));
       const activeNominations = nominationSessions.filter((session) => session.active);
 
@@ -4824,6 +6456,7 @@
           row.breakPlan = calculateBreakPlan(row.startTime, row.endTime);
         }
       });
+      saveTemporaryState();
       renderAttendanceList();
       renderTableSheet();
 
@@ -5087,6 +6720,32 @@
       loginError.textContent = "キャスト名、従業員番号、またはパスワードが違います。";
     });
 
+    function updateHeaderDateTime() {
+      const now = new Date();
+      headerDateTime.dateTime = now.toISOString();
+      headerDateTime.textContent = new Intl.DateTimeFormat("ja-JP", {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+        weekday: "short",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: false
+      }).format(now);
+    }
+
+    logoutBtn.addEventListener("click", () => {
+      saveTemporaryState();
+      currentLoginAccount = null;
+      operatorLabel.textContent = "";
+      appScreen.classList.add("hidden");
+      loginScreen.classList.remove("hidden");
+      loginForm.reset();
+      loginError.textContent = "";
+      document.querySelector("#castName")?.focus();
+    });
+
     productGrid.addEventListener("click", (event) => {
       const button = event.target.closest("[data-product-id]");
       if (!button) return;
@@ -5097,6 +6756,135 @@
       const button = event.target.closest("[data-action]");
       if (!button) return;
       updateCart(button.dataset.productId, button.dataset.action);
+    });
+
+    historyList.addEventListener("click", (event) => {
+      const actionButton = event.target.closest("[data-history-action][data-history-id]");
+      if (actionButton) {
+        const entryId = actionButton.dataset.historyId;
+        if (actionButton.dataset.historyAction === "edit") {
+          openHistoryEditModal(entryId);
+          return;
+        }
+        if (actionButton.dataset.historyAction === "delete") {
+          const entryIndex = history.findIndex((entry) => entry.id === entryId);
+          if (entryIndex >= 0) history.splice(entryIndex, 1);
+          selectedHistoryEntryId = "";
+          renderHistory();
+          return;
+        }
+      }
+
+      const historyEntry = event.target.closest("[data-history-entry-id]");
+      if (!historyEntry) return;
+      selectedHistoryEntryId = selectedHistoryEntryId === historyEntry.dataset.historyEntryId
+        ? ""
+        : historyEntry.dataset.historyEntryId;
+      renderHistory();
+    });
+
+    historyEditSave.addEventListener("click", () => {
+      const entry = history.find((item) => item.id === editingHistoryEntryId);
+      if (!entry) {
+        historyEditError.textContent = "編集対象の会計履歴が見つかりません。";
+        return;
+      }
+      updateHistoryEditPaymentState();
+      if (historyEditSave.disabled) return;
+      const payments = selectedHistoryEditPayments();
+      const total = currentHistoryEditTotal();
+      const method = payments
+        .map((payment) => payments.length > 1 ? `${payment.name} ${formatYen(payment.amount)}` : payment.name)
+        .join(" ＋ ");
+      entry.method = method;
+      entry.count = historyEditItems.reduce((sum, item) => sum + Number(item.qty || 0), 0);
+      entry.total = total;
+      entry.payments = payments;
+      entry.items = historyEditItems.map((item) => ({ ...item }));
+      if (entry.cheki) {
+        const chekiPhotoCount = historyEditItems
+          .filter((item) => item.category === "cheki")
+          .reduce((sum, item) => sum + Number(item.qty || 0), 0);
+        if (chekiPhotoCount > 0) entry.cheki.photoCount = chekiPhotoCount;
+        else entry.cheki = null;
+      }
+      closeHistoryEditModal();
+      renderHistory();
+    });
+
+    historyEditCancel.addEventListener("click", closeHistoryEditModal);
+
+    historyEditPaymentList.addEventListener("input", (event) => {
+      if (!event.target.classList.contains("payment-method-amount")) return;
+      delete event.target.dataset.autoCalculated;
+      historyEditPaymentList.querySelectorAll('.payment-method-amount[data-auto-calculated="true"]').forEach((input) => {
+        if (input === event.target) return;
+        input.value = "";
+        delete input.dataset.autoCalculated;
+      });
+      updateHistoryEditPaymentState();
+    });
+
+    historyEditPaymentList.addEventListener("change", (event) => {
+      if (event.target.type !== "checkbox") return;
+      historyEditPaymentList.querySelectorAll(".payment-method-amount").forEach((input) => {
+        input.value = "";
+        delete input.dataset.autoCalculated;
+      });
+      updateHistoryEditPaymentState();
+    });
+
+    historyEditOrderBreakdown.addEventListener("input", (event) => {
+      const quantityInput = event.target.closest("[data-history-edit-item-qty]");
+      if (!quantityInput) return;
+      const item = historyEditItems.find((candidate) => candidate.id === quantityInput.dataset.historyEditItemQty);
+      const quantity = Number(quantityInput.value);
+      if (item && Number.isInteger(quantity) && quantity >= 1) item.qty = quantity;
+      historyEditCalculatedTotal.textContent = formatYen(currentHistoryEditTotal());
+      historyEditPaymentList.querySelectorAll(".payment-method-amount").forEach((input) => {
+        input.value = "";
+        delete input.dataset.autoCalculated;
+      });
+      updateHistoryEditPaymentState();
+    });
+
+    historyEditOrderBreakdown.addEventListener("click", (event) => {
+      const deleteButton = event.target.closest("[data-history-edit-item-delete]");
+      if (!deleteButton) return;
+      historyEditItems = historyEditItems.filter((item) => item.id !== deleteButton.dataset.historyEditItemDelete);
+      historyEditPaymentList.querySelectorAll(".payment-method-amount").forEach((input) => {
+        input.value = "";
+        delete input.dataset.autoCalculated;
+      });
+      renderHistoryEditOrderBreakdown();
+      updateHistoryEditPaymentState();
+    });
+
+    chekiAccountingList.addEventListener("click", (event) => {
+      const button = event.target.closest("[data-cheki-history-action][data-history-id]");
+      if (!button) return;
+      const historyIndex = history.findIndex((entry) => entry.id === button.dataset.historyId);
+      if (historyIndex < 0 || !history[historyIndex].cheki) return;
+      if (button.dataset.chekiHistoryAction === "notes") {
+        chekiNotesContent.textContent = history[historyIndex].cheki.notes || "なし";
+        chekiNotesModal.hidden = false;
+        return;
+      }
+      if (button.dataset.chekiHistoryAction === "photographed") {
+        history[historyIndex].cheki.photographed = true;
+        renderHistory();
+        return;
+      }
+      if (button.dataset.chekiHistoryAction === "cancel") {
+        if (!window.confirm("このチェキ会計を取り消しますか？レジの会計履歴からも削除されます。")) return;
+        history.splice(historyIndex, 1);
+        renderHistory();
+      }
+    });
+
+    chekiNotesClose.addEventListener("click", () => {
+      chekiNotesModal.hidden = true;
+      chekiNotesContent.textContent = "";
     });
 
     businessMenu.addEventListener("click", (event) => {
@@ -5574,9 +7362,21 @@
           minute: row.querySelector("[data-table-entry-minute]").value,
           status: row.querySelector("[data-table-entry-status]").value
         })).filter((entry) => entry.name);
+        const newNominationEntry = entries.find((entry) => (
+          entry.status === "指名"
+          && !previousEntries.some((previous) => (
+            previous.name === entry.name
+            && previous.minute === entry.minute
+            && previous.status === "指名"
+          ))
+        ));
+        closeTableCellPanel();
+        if (newNominationEntry) {
+          openRegisterFromNomination(editedCell, newNominationEntry, previousEntries, entries);
+          return;
+        }
         setTableCellEntries(editedCell, entries);
         registerNewNominationSessions(editedCell, previousEntries, entries);
-        closeTableCellPanel();
         return;
       }
 
@@ -5604,7 +7404,7 @@
       if (!session) return;
 
       if (button.dataset.nominationAction === "continue") {
-        continueNominationSession(session);
+        openRegisterFromNominationContinuation(session);
         return;
       }
 
@@ -5615,27 +7415,28 @@
     });
 
     completeBtn.addEventListener("click", () => {
-      const totals = currentTotals();
-      history.unshift({
-        time: new Date().toLocaleTimeString("ja-JP", { hour: "2-digit", minute: "2-digit" }),
-        method: paymentMethod.value,
-        count: totals.count,
-        total: totals.total
-      });
-      cart.clear();
-      receivedInput.value = "";
-      discountInput.value = 0;
-      registerTransferNotice.hidden = true;
-      registerTransferNotice.textContent = "";
-      renderCart();
-      renderHistory();
+      if (!validateCartRules()) return;
+      const cheki = readChekiCheckoutDetails();
+      if (cheki === false) return;
+      if (cheki) {
+        cheki.photoCount = chekiPhotoCountInCart();
+        cheki.photographed = false;
+      }
+      openPaymentMethodModal(cheki);
     });
 
     clearCartBtn.addEventListener("click", () => {
+      closePaymentMethodModal();
+      cancelPendingNominationPlacement();
+      pendingChekiAdditionalRows = [];
+      activeChekiAdditionalCheckout = false;
+      activeChekiSharedDetails = null;
       cart.clear();
       registerTransferNotice.hidden = true;
       registerTransferNotice.textContent = "";
+      closeNominationCheckoutOverlay();
       renderCart();
+      renderProducts();
     });
 
     endBusinessBtn.addEventListener("click", () => {
@@ -5645,8 +7446,84 @@
     });
 
     [searchBox, categoryFilter].forEach((control) => control.addEventListener("input", renderProducts));
-    [discountInput, receivedInput, paymentMethod].forEach((control) => control.addEventListener("input", renderCart));
+    registerTagSelector.addEventListener("click", (event) => {
+      const button = event.target.closest("[data-register-tag]");
+      if (!button) return;
+      activeRegisterTag = button.dataset.registerTag;
+      categoryFilter.value = activeRegisterTag;
+      registerTagSelector.querySelectorAll("[data-register-tag]").forEach((tagButton) => {
+        tagButton.classList.toggle("active", tagButton === button);
+      });
+      renderProducts();
+    });
+    chekiCheckoutPeople.addEventListener("change", updateChekiAdditionalCastField);
+    chekiAddCastButton.addEventListener("click", openChekiCastSelectModal);
+    chekiCastSelectConfirm.addEventListener("click", confirmChekiCastSelection);
+    chekiCastSelectCancel.addEventListener("click", closeChekiCastSelectModal);
+    eventBottlePriceConfirm.addEventListener("click", () => {
+      eventBottlePriceModal.hidden = true;
+      addToCart("event-bottle", Number(eventBottlePriceSelect.value));
+    });
+    eventBottlePriceCancel.addEventListener("click", () => {
+      eventBottlePriceModal.hidden = true;
+    });
+    paymentOrderBreakdown.addEventListener("click", (event) => {
+      const removeButton = event.target.closest("[data-payment-order-remove]");
+      if (removeButton) {
+        updateCart(removeButton.dataset.paymentOrderRemove, "remove");
+        selectedPaymentOrderItemId = "";
+        if (cartQuantityForCategory("cheki") === 0) {
+          pendingCheckoutCheki = null;
+        } else if (pendingCheckoutCheki) {
+          pendingCheckoutCheki.photoCount = chekiPhotoCountInCart();
+        }
+        paymentMethodList.querySelectorAll(".payment-method-amount").forEach((input) => {
+          input.value = "";
+          delete input.dataset.autoCalculated;
+        });
+        renderPaymentOrderBreakdown();
+        updatePaymentMethodModal();
+        return;
+      }
 
+      const itemRow = event.target.closest("[data-payment-order-id]");
+      if (!itemRow) return;
+      selectedPaymentOrderItemId = selectedPaymentOrderItemId === itemRow.dataset.paymentOrderId
+        ? ""
+        : itemRow.dataset.paymentOrderId;
+      renderPaymentOrderBreakdown();
+    });
+    paymentMethodList.addEventListener("input", (event) => {
+      if (!event.target.classList.contains("payment-method-amount")) return;
+      delete event.target.dataset.autoCalculated;
+      paymentMethodList.querySelectorAll('.payment-method-amount[data-auto-calculated="true"]').forEach((input) => {
+        if (input === event.target) return;
+        input.value = "";
+        delete input.dataset.autoCalculated;
+      });
+      updatePaymentMethodModal();
+    });
+    paymentMethodList.addEventListener("change", (event) => {
+      if (event.target.type !== "checkbox") return;
+      paymentMethodList.querySelectorAll(".payment-method-amount").forEach((input) => {
+        input.value = "";
+        delete input.dataset.autoCalculated;
+      });
+      updatePaymentMethodModal();
+    });
+    paymentMethodConfirm.addEventListener("click", () => {
+      updatePaymentMethodModal();
+      if (paymentMethodConfirm.disabled) return;
+      completeCheckout(selectedPaymentAllocations());
+    });
+    paymentMethodCancel.addEventListener("click", closePaymentMethodModal);
+    [discountInput, receivedInput, paymentMethod].forEach((control) => control.addEventListener("input", renderCart));
+    [chekiCheckoutPeople, chekiCheckoutGameId, chekiCheckoutMaster, chekiCheckoutPlan, chekiCheckoutNotes]
+      .forEach((control) => control.addEventListener("input", saveTemporaryState));
+
+    categoryFilter.value = activeRegisterTag;
+    restoreTemporaryState();
+    temporaryStateReady = true;
     renderProducts();
     synchronizeLoginAccountsWithServer();
     synchronizeShiftRequestsWithServer();
@@ -5655,6 +7532,8 @@
     renderShiftTable();
     renderShareList();
     renderSideShareList();
+    updateHeaderDateTime();
+    setInterval(updateHeaderDateTime, 1000);
     setInterval(() => {
       renderSideShareList();
       renderDepartureSchedule();
